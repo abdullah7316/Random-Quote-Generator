@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../logo.png">
+    <title>JS--9</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .shadow {
+            box-shadow: 0.1px 0.1px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-family: Helvetica, sans-serif;
+            color: white;
+            margin: 20px 200px;
+            background-color: rgb(0, 153, 255);
+            border-radius: 24px;
+            padding: 4px 0px;
+        }
+
+        #outer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+
+        #container {
+            background-color: rgb(235, 235, 235);
+            padding: 30px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            width: 450px;
+            position: relative;
+        }
+
+        #generate-btn {
+            width: 100%;
+            font-size: 1.1rem;
+            font-family: Helvetica, sans-serif;
+            border: none;
+            border-radius: 24px;
+            padding: 5px 0px 4px 0px;
+            background-color: rgb(0, 153, 255);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #generate-btn:hover {
+            background-color: rgb(0, 136, 226);
+        }
+
+        #quote-div {
+            margin: 20px 0px;
+            padding: 10px;
+        }
+
+        #quotee {
+            position: absolute;
+            right: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-center shadow">Random Quotes Generator</h1>
+    <div id="outer">
+        <div id="container" class="shadow">
+            <button id="generate-btn">GENERATE</button>
+            <div id="quote-div">
+                <p id="quote">&quot;Random Quote will appear here&quot;</p>
+                <div id="quotee">--Quotee</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let btn = document.querySelector('#generate-btn');
+        let quotePara = document.getElementById('quote');
+        let quoteWriter = document.getElementById('quotee');
+
+        let quotes = [
+            "The only way to do great work is to love what you do.",
+            "In three words I can sum up everything I've learned about life: it goes on.",
+            "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+            "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
+            "The only limit to our realization of tomorrow will be our doubts of today.",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+            "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+            "Don't watch the clock; do what it does. Keep going.",
+            "The best way to predict your future is to create it.",
+            "The only person you are destined to become is the person you decide to be.",
+            "The future belongs to those who believe in the beauty of their dreams.",
+            "Life is 10% what happens to us and 90% how we react to it.",
+            "The way to get started is to quit talking and begin doing.",
+            "Happiness is not something ready made. It comes from your own actions.",
+            "Do not go where the path may lead, go instead where there is no path and leave a trail.",
+            "You miss 100% of the shots you don't take.",
+            "The only thing necessary for the triumph of evil is for good men to do nothing.",
+            "Believe you can and you're halfway there.",
+            "It does not matter how slowly you go as long as you do not stop.",
+            "The purpose of our lives is to be happy."
+        ];
+
+        let writers = [
+            "Steve Jobs",
+            "Robert Frost",
+            "Nelson Mandela",
+            "Ralph Waldo Emerson",
+            "Franklin D. Roosevelt",
+            "Winston Churchill",
+            "Albert Einstein",
+            "Sam Levenson",
+            "Abraham Lincoln",
+            "Ralph Waldo Emerson",
+            "Eleanor Roosevelt",
+            "Charles R. Swindoll",
+            "Walt Disney",
+            "Dalai Lama",
+            "Ralph Waldo Emerson",
+            "Wayne Gretzky",
+            "Edmund Burke",
+            "Theodore Roosevelt",
+            "Confucius",
+            "Dalai Lama"
+        ];
+
+        btn.addEventListener('click', () => {
+            let randomNum = Math.floor(Math.random() * 20);
+            let quote = quotes[randomNum];
+            let writer = writers[randomNum];
+
+            quotePara.textContent = `\"${quote}\"`;
+            quoteWriter.textContent = `--${writer}`;
+        })
+    </script>
+</body>
+
+</html>
